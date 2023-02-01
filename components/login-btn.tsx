@@ -14,6 +14,7 @@ export default function LoginButton() {
     <>
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
+      <div className='bg-slate-400'>allo</div>
     </>
   )
 }
