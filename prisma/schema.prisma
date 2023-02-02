@@ -35,6 +35,14 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -43,12 +51,28 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  createdBeers  Beer[]
+  reviews       Review[]
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
+model Beer {
+  id            String  @id @default(cuid())
+  userId        String
+  createdBy     User    @relation(fields: [userId], references: [id])
+  reviews       Review[]
+  name          String
+  brewer        String
+  style         String
+  color         String
+  description   String
+}
 
-  @@unique([identifier, token])
+model Review {
+  id          String  @id @default(cuid())
+  userId      String
+  createdBy   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  beerId      String
+  beer        Beer    @relation(fields: [beerId], references: [id], onDelete: Cascade)
+  comment     String
+  score       Int
 }
