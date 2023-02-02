@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import LoginButton from '@/components/login-btn'
+import LoginButton from '@/components/LoginButton'
+import ThemeToggler from '@/components/ThemeToggler'
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Head>
         <title>ilovecoldbeer</title>
         <meta name='description' content='Review your favorite beer!' />
@@ -11,8 +12,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <LoginButton></LoginButton>
+        <LoginButton />
+        <ThemeToggler />
       </main>
-    </>
+    </div>
   )
 }
