@@ -51,14 +51,14 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  createdBeers  Beer[]
+  addedBeers    Beer[]
   reviews       Review[]
 }
 
 model Beer {
   id            String  @id @default(cuid())
   userId        String
-  createdBy     User    @relation(fields: [userId], references: [id])
+  addedBy       User    @relation(fields: [userId], references: [id])
   reviews       Review[]
   name          String
   brewer        String
