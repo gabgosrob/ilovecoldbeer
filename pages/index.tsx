@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import LoginButton from '@/components/LoginButton'
 import ThemeToggler from '@/components/ThemeToggler'
+import Router from 'next/router'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <LoginButton />
         <ThemeToggler />
+        <button onClick={() => Router.push('/add-beer')}>Add a beer!</button>
       </main>
     </div>
   )

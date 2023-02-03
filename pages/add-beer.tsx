@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import { useSession } from 'next-auth/react'
 
 export default function AddBeer() {
-  const { data: session } = useSession()
-
   return (
     <div>
       <Head>
@@ -28,13 +25,6 @@ export default function AddBeer() {
 
           <label htmlFor='description'>Description:</label>
           <input type='text' id='description' name='description'></input>
-
-          <input
-            type='hidden'
-            id='userId'
-            name='userId'
-            value='FIX THIS'
-          ></input>
 
           <button type='submit'>Submit</button>
         </form>
