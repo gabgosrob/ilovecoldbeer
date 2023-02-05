@@ -36,7 +36,10 @@ export default function BeerPage({ beer }: BeerProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>{beerInfo}</main>
+      <main>
+        <div>{beerInfo}</div>
+        <Link href={`/beer/review/${beer.id}`}>Review this beer!</Link>
+      </main>
     </div>
   )
 }

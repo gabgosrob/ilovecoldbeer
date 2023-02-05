@@ -15,3 +15,7 @@ export type IndexProps = {
 export type BeerCardProps = {
   beer: Beer
 }
+
+export type BeerReviewProps = {
+  beer: Beer
+}
