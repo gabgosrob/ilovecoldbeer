@@ -11,3 +11,7 @@ export type UserProps = {
 export type IndexProps = {
   beers: Beer[]
 }
+
+export type BeerCardProps = {
+  beer: Beer
+}

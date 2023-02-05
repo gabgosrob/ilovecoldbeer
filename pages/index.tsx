@@ -6,12 +6,11 @@ import { IndexProps } from '@/lib/custom-types'
 import prisma from '@/lib/prismadb'
 import LoginButton from '@/components/LoginButton'
 import ThemeToggler from '@/components/ThemeToggler'
+import BeerCard from '@/components/BeerCard'
 
 export default function Home({ beers }: IndexProps) {
   const beerComponents = beers.map((beer, key) => (
-    <Link href={`/beer/${beer.id}`} key={key}>
-      {beer.name}
-    </Link>
+    <BeerCard beer={beer} key={key} />
   ))
 
   return (
