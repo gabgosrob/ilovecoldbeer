@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Router from 'next/router'
-import Link from 'next/link'
 import { GetServerSideProps } from 'next'
 import { IndexProps } from '@/lib/custom-types'
 import prisma from '@/lib/prismadb'
