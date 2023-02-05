@@ -25,6 +25,14 @@ export default function BeerReview({ beer }: BeerReviewProps) {
           <label htmlFor='score'>Score:</label>
           <input type='text' id='score' name='score'></input>
 
+          <input
+            type='hidden'
+            id='beerId'
+            name='beerId'
+            value={beer.id}
+            readOnly={true}
+          ></input>
+
           <button type='submit'>Submit</button>
         </form>
       </main>
