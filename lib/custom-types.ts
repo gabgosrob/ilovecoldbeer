@@ -7,3 +7,7 @@ export type BeerProps = {
 export type UserProps = {
   user: User
 }
+
+export type IndexProps = {
+  beers: Beer[]
+}
