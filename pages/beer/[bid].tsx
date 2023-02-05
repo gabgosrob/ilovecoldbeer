@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import prisma from '@/lib/prismadb'
 import { Beer } from '@prisma/client'
+import Link from 'next/link'
 
 type BeerProps = {
   beer: Beer
@@ -24,6 +25,9 @@ export default function BeerPage({ beer }: BeerProps) {
         <div>{beer.style}</div>
         <div>{beer.color}</div>
         <div>{beer.description}</div>
+        <div>
+          <Link href={`/user/${beer.userId}`}>Added by {beer.userId}</Link>
+        </div>
       </div>
     )
   }
@@ -31,8 +35,8 @@ export default function BeerPage({ beer }: BeerProps) {
   return (
     <div>
       <Head>
-        <title>ilovecoldbeer</title>
-        <meta name='description' content='Add a beer!' />
+        <title>{beer.name}</title>
+        <meta name='description' content={`Page of the beer ${beer.name}`} />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
