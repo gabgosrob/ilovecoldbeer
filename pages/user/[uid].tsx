@@ -1,12 +1,8 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import prisma from '@/lib/prismadb'
-import { User } from '@prisma/client'
 import Image from 'next/image'
-
-type UserProps = {
-  user: User
-}
+import { UserProps } from '@/lib/custom-types'
 
 export default function UserPage({ user }: UserProps) {
   let userInfo

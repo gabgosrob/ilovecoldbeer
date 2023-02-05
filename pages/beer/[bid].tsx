@@ -1,12 +1,8 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import prisma from '@/lib/prismadb'
-import { Beer } from '@prisma/client'
 import Link from 'next/link'
-
-type BeerProps = {
-  beer: Beer
-}
+import { BeerProps } from '@/lib/custom-types'
 
 export default function BeerPage({ beer }: BeerProps) {
   let beerInfo
