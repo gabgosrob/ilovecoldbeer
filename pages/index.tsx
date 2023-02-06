@@ -23,7 +23,9 @@ export default function Home({ beers }: IndexProps) {
       <main>
         <LoginButton />
         <ThemeToggler />
-        <button onClick={() => Router.push('/add-beer')}>Add a beer!</button>
+        <button onClick={() => Router.push('/beer/add-beer')}>
+          Add a beer!
+        </button>
         <div className='flex flex-col'>{beerComponents}</div>
       </main>
     </div>

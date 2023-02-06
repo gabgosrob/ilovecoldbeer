@@ -2,8 +2,21 @@ import { GetServerSideProps } from 'next'
 import prisma from '@/lib/prismadb'
 import Head from 'next/head'
 import { BeerReviewProps } from '@/lib/custom-types'
+import { useSession } from 'next-auth/react'
+import Router from 'next/router'
 
 export default function BeerReview({ beer }: BeerReviewProps) {
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      return Router.push('/api/auth/signin')
+    },
+  })
+
+  if (status === 'loading') {
+    return <div>SPINNER HERE</div>
+  }
+
   if (!beer) {
     return <div>This beer does not exist!</div>
   }

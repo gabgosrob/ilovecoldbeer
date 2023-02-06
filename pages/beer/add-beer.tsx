@@ -1,6 +1,19 @@
 import Head from 'next/head'
+import { useSession } from 'next-auth/react'
+import Router from 'next/router'
 
 export default function AddBeer() {
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      return Router.push('/api/auth/signin')
+    },
+  })
+
+  if (status === 'loading') {
+    return <div>SPINNER HERE</div>
+  }
+
   return (
     <div>
       <Head>
