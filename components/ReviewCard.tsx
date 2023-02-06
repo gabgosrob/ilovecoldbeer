@@ -5,6 +5,7 @@ export default function ReviewCard({ review }: ReviewCardProps) {
     <div>
       <div>{review.comment}</div>
       <div>{review.score}</div>
+      <div>{review.userId}</div>
     </div>
   )
 }
