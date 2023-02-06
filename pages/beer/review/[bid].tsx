@@ -20,10 +20,23 @@ export default function BeerReview({ beer }: BeerReviewProps) {
         <div>Review {beer.name}</div>
         <form action='/api/review-beer' method='post'>
           <label htmlFor='comment'>Comment:</label>
-          <input type='text' id='comment' name='comment'></input>
+          <input
+            type='text'
+            id='comment'
+            name='comment'
+            required
+            maxLength={240}
+          ></input>
 
           <label htmlFor='score'>Score:</label>
-          <input type='text' id='score' name='score'></input>
+          <input
+            type='number'
+            id='score'
+            name='score'
+            required
+            min={1}
+            max={10}
+          ></input>
 
           <input
             type='hidden'
@@ -31,6 +44,7 @@ export default function BeerReview({ beer }: BeerReviewProps) {
             name='beerId'
             value={beer.id}
             readOnly={true}
+            required
           ></input>
 
           <button type='submit'>Submit</button>
