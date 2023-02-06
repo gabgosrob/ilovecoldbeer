@@ -1,7 +1,8 @@
-import { Beer, User } from '@prisma/client'
+import { Beer, Review, User } from '@prisma/client'
 
 export type BeerProps = {
   beer: Beer
+  reviews: Review[]
 }
 
 export type UserProps = {
@@ -18,4 +19,8 @@ export type BeerCardProps = {
 
 export type BeerReviewProps = {
   beer: Beer
+}
+
+export type ReviewCardProps = {
+  review: Review
 }
