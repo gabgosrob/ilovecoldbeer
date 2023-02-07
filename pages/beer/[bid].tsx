@@ -21,13 +21,15 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
     )
   } else {
     beerInfo = (
-      <div className='flex flex-col justify-center items-center gap-3 border p-3 max-w-md overflow-scroll'>
+      <div className='flex flex-col justify-center items-center gap-3 border p-3 max-w-md'>
         <div className='underline font-bold'>{beer.name}</div>
         <div className='flex flex-col'>
           <div>Brewer: {beer.brewer}</div>
           <div>Style: {beer.style}</div>
           <div>Color: {beer.color}</div>
-          <div>Description: {beer.description}</div>
+          <div className='overflow-y-scroll'>
+            Description: {beer.description}
+          </div>
           <div>
             Average Score:{' '}
             {reviews.length

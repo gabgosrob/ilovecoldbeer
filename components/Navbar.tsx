@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className='flex items-center justify-center gap-5'>
       <LoginButton />
-      <Link href='/' className='text-4xl'>
+      <Link href='/' className='text-4xl font-bold'>
         ilovecoldbeer
       </Link>
       <ThemeToggler />
