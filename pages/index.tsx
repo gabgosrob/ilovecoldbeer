@@ -19,7 +19,7 @@ export default function Home({ beers }: IndexProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='m-3 flex flex-col gap-6'>
+      <main className='m-3 mt-12 flex flex-col gap-10'>
         <Navbar />
         <div className='flex justify-center items-center gap-4'>
           {beerComponents}

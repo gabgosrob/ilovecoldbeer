@@ -33,7 +33,7 @@ export default function UserPage({ user }: UserProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='m-3 flex flex-col justify-center items-center gap-6'>
+      <main className='m-3 mt-12 flex flex-col justify-center items-center gap-10'>
         <Navbar />
         {userInfo}
       </main>
