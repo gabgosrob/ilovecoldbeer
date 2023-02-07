@@ -3,8 +3,11 @@ import { BeerCardProps } from '@/lib/custom-types'
 
 export default function BeerCard({ beer }: BeerCardProps) {
   return (
-    <div className='border p-2 border-black dark:border-white'>
-      <Link href={`/beer/${beer.id}`}>{beer.name}</Link>
-    </div>
+    <Link
+      href={`/beer/${beer.id}`}
+      className='border p-2 border-black dark:border-white'
+    >
+      {beer.name}
+    </Link>
   )
 }
