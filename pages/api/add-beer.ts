@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prismadb'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from './auth/[...nextauth]'
+import { beerAddSchema } from '@/lib/validation-schemas'
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,13 +19,15 @@ export default async function handler(
       },
     })
 
-    if (!user) {
+    if (!user || !user.id) {
       return res.redirect('/')
     }
 
     const beer = req.body
-
-    // verifications input
+    const validationResult = beerAddSchema.safeParse(beer)
+    if (!validationResult.success) {
+      return res.redirect('/')
+    }
 
     const createdBeer = await prisma.beer.create({
       data: {

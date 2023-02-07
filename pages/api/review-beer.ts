@@ -19,7 +19,7 @@ export default async function handler(
       },
     })
 
-    if (!user) {
+    if (!user || !user.id) {
       return res.redirect('/')
     }
 
