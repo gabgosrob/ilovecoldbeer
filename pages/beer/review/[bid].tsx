@@ -14,7 +14,7 @@ export default function BeerReview({ beer }: BeerReviewProps) {
   })
 
   if (status === 'loading') {
-    return <div>SPINNER HERE</div>
+    return <div>Loading...</div>
   }
 
   if (!beer) {
