@@ -10,6 +10,9 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
   let beerInfo
   let reviewsInfo
 
+  const averageScore =
+    reviews.reduce((sum, review) => sum + review.score, 0) / reviews.length || 0
+
   if (!beer) {
     beerInfo = (
       <div>
@@ -25,6 +28,12 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
           <div>Style: {beer.style}</div>
           <div>Color: {beer.color}</div>
           <div>Description: {beer.description}</div>
+          <div>
+            Average Score:{' '}
+            {reviews.length
+              ? `${Math.round(averageScore * 100) / 100}/10`
+              : 'No reviews yet!'}
+          </div>
         </div>
         <div>
           <Link href={`/user/${beer.userId}`}>Added by {beer.userId}</Link>

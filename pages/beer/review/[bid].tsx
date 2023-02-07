@@ -34,7 +34,7 @@ export default function BeerReview({ beer }: BeerReviewProps) {
       <main className='m-3 flex flex-col justify-center items-center gap-6'>
         <Navbar />
         <div>
-          Review&nbsp;
+          Review{' '}
           <Link href={`/beer/${beer.id}`} className='font-bold'>
             {beer.name}
           </Link>
