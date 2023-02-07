@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <div className='flex flex-col justify-center items-center border p-2 max-w-s'>
+    <div className='flex flex-col justify-center items-center border p-2 max-w-sm'>
       <Link href={`/user/${review.userId}`}>
         {review.userId.slice(0, 12)}... :{' '}
       </Link>
