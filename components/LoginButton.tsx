@@ -5,10 +5,9 @@ export default function LoginButton() {
   if (session) {
     return (
       <div>
-        Signed in as {session.user?.email} <br />
         <button
           onClick={() => signOut()}
-          className='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow'
+          className='bg-white hover:bg-gray-100 text-gray-800 font-semibold p-1 rounded shadow'
         >
           Sign out
         </button>
@@ -20,7 +19,7 @@ export default function LoginButton() {
     <div>
       <button
         onClick={() => signIn()}
-        className='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow'
+        className='bg-white hover:bg-gray-100 text-gray-800 font-semibold p-1 rounded shadow'
       >
         Sign in
       </button>

@@ -3,9 +3,8 @@ import Router from 'next/router'
 import { GetServerSideProps } from 'next'
 import { IndexProps } from '@/lib/custom-types'
 import prisma from '@/lib/prismadb'
-import LoginButton from '@/components/LoginButton'
-import ThemeToggler from '@/components/ThemeToggler'
 import BeerCard from '@/components/BeerCard'
+import Navbar from '@/components/Navbar'
 
 export default function Home({ beers }: IndexProps) {
   const beerComponents = beers.map((beer, key) => (
@@ -20,9 +19,8 @@ export default function Home({ beers }: IndexProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <LoginButton />
-        <ThemeToggler />
+      <main className='m-3'>
+        <Navbar />
         <button onClick={() => Router.push('/beer/add-beer')}>
           Add a beer!
         </button>
