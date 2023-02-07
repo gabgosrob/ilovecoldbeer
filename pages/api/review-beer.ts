@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/lib/prismadb'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from './auth/[...nextauth]'
+import { beerReviewSchema } from '@/lib/validation-schemas'
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,10 +24,10 @@ export default async function handler(
     }
 
     const review = req.body
-
-    // verifications input
-
-    // only one review per user!?
+    const validationResult = beerReviewSchema.safeParse(review)
+    if (!validationResult.success) {
+      return res.redirect('/')
+    }
 
     const createdReview = await prisma.review.create({
       data: {
