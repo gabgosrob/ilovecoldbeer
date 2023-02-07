@@ -18,7 +18,7 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
     )
   } else {
     beerInfo = (
-      <div className='flex flex-col justify-center items-center gap-3 border p-3'>
+      <div className='flex flex-col justify-center items-center gap-3 border p-3 max-w-s'>
         <div className='underline'>{beer.name}</div>
         <div className='flex flex-col'>
           <div>Brewer: {beer.brewer}</div>
