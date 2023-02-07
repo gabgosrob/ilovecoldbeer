@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { BeerReviewProps } from '@/lib/custom-types'
 import { useSession } from 'next-auth/react'
 import Router from 'next/router'
+import Navbar from '@/components/Navbar'
+import Link from 'next/link'
 
 export default function BeerReview({ beer }: BeerReviewProps) {
   const { status } = useSession({
@@ -29,27 +31,44 @@ export default function BeerReview({ beer }: BeerReviewProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <div>Review {beer.name}</div>
-        <form action='/api/review-beer' method='post'>
-          <label htmlFor='comment'>Comment:</label>
-          <input
-            type='text'
-            id='comment'
-            name='comment'
-            required
-            maxLength={240}
-          ></input>
+      <main className='m-3 flex flex-col justify-center items-center gap-6'>
+        <Navbar />
+        <div>
+          Review&nbsp;
+          <Link href={`/beer/${beer.id}`} className='font-bold'>
+            {beer.name}
+          </Link>
+        </div>
+        <form
+          action='/api/review-beer'
+          method='post'
+          className='flex flex-col gap-3'
+          id='reviewform'
+        >
+          <div className='flex flex-col'>
+            <label htmlFor='comment'>Comment:</label>
+            <textarea
+              form='reviewform'
+              id='comment'
+              name='comment'
+              required
+              maxLength={240}
+              className='border h-20'
+            ></textarea>
+          </div>
 
-          <label htmlFor='score'>Score:</label>
-          <input
-            type='number'
-            id='score'
-            name='score'
-            required
-            min={1}
-            max={10}
-          ></input>
+          <div className='flex flex-col'>
+            <label htmlFor='score'>Score:</label>
+            <input
+              type='number'
+              id='score'
+              name='score'
+              required
+              min={1}
+              max={10}
+              className='border'
+            ></input>
+          </div>
 
           <input
             type='hidden'
