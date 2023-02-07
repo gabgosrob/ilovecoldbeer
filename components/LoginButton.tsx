@@ -5,10 +5,7 @@ export default function LoginButton() {
   if (session) {
     return (
       <div>
-        <button
-          onClick={() => signOut()}
-          className='border border-black dark:border-white rounded p-1'
-        >
+        <button onClick={() => signOut()} className='border rounded p-1'>
           Sign out
         </button>
       </div>
@@ -17,10 +14,7 @@ export default function LoginButton() {
 
   return (
     <div>
-      <button
-        onClick={() => signIn()}
-        className='border border-black dark:border-white rounded p-1'
-      >
+      <button onClick={() => signIn()} className='border rounded p-1'>
         Sign in
       </button>
     </div>

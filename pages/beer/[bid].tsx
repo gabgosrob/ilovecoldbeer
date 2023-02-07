@@ -4,6 +4,7 @@ import prisma from '@/lib/prismadb'
 import Link from 'next/link'
 import { BeerProps } from '@/lib/custom-types'
 import ReviewCard from '@/components/ReviewCard'
+import Navbar from '@/components/Navbar'
 
 export default function BeerPage({ beer, reviews }: BeerProps) {
   let beerInfo
@@ -17,18 +18,21 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
     )
   } else {
     beerInfo = (
-      <div>
-        <div>{beer.name}</div>
-        <div>{beer.brewer}</div>
-        <div>{beer.style}</div>
-        <div>{beer.color}</div>
-        <div>{beer.description}</div>
+      <div className='flex flex-col justify-center items-center gap-3 border p-3'>
+        <div className='underline'>{beer.name}</div>
+        <div className='flex flex-col'>
+          <div>Brewer: {beer.brewer}</div>
+          <div>Style: {beer.style}</div>
+          <div>Color: {beer.color}</div>
+          <div>Description: {beer.description}</div>
+        </div>
         <div>
           <Link href={`/user/${beer.userId}`}>Added by {beer.userId}</Link>
         </div>
       </div>
     )
   }
+
   if (!reviews) {
     reviewsInfo = (
       <div>
@@ -49,12 +53,16 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <div>{beerInfo}</div>
-        <Link href={beer ? `/beer/review/${beer.id}` : '/'}>
+      <main className='m-3 flex flex-col justify-center items-center gap-6'>
+        <Navbar />
+        {beerInfo}
+        <Link
+          href={beer ? `/beer/review/${beer.id}` : '/'}
+          className='border p-1'
+        >
           Review this beer!
         </Link>
-        <div className='flex flex-col'>{reviewsInfo}</div>
+        <div className='flex gap-6'>{reviewsInfo}</div>
       </main>
     </div>
   )
