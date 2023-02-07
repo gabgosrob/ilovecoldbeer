@@ -7,7 +7,7 @@ export default function LoginButton() {
       <div>
         <button
           onClick={() => signOut()}
-          className='bg-white hover:bg-gray-100 text-gray-800 font-semibold p-1 rounded shadow'
+          className='border border-black dark:border-white rounded p-1'
         >
           Sign out
         </button>
@@ -19,7 +19,7 @@ export default function LoginButton() {
     <div>
       <button
         onClick={() => signIn()}
-        className='bg-white hover:bg-gray-100 text-gray-800 font-semibold p-1 rounded shadow'
+        className='border border-black dark:border-white rounded p-1'
       >
         Sign in
       </button>

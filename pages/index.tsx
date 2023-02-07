@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Router from 'next/router'
+import Link from 'next/link'
 import { GetServerSideProps } from 'next'
 import { IndexProps } from '@/lib/custom-types'
 import prisma from '@/lib/prismadb'
@@ -19,12 +19,17 @@ export default function Home({ beers }: IndexProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='m-3'>
+      <main className='m-3 flex flex-col gap-6'>
         <Navbar />
-        <button onClick={() => Router.push('/beer/add-beer')}>
-          Add a beer!
-        </button>
-        <div className='flex flex-col'>{beerComponents}</div>
+        <div className='flex justify-center items-center gap-4'>
+          {beerComponents}
+          <Link
+            href='/beer/add-beer'
+            className='border p-2 border-black dark:border-white'
+          >
+            +
+          </Link>
+        </div>
       </main>
     </div>
   )
