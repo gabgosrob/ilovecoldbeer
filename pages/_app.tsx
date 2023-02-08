@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider session={pageProps.session}>
       <ThemeProvider enableSystem={false} attribute='class' defaultTheme='dark'>
+        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
         <Component {...pageProps} />
       </ThemeProvider>
     </SessionProvider>

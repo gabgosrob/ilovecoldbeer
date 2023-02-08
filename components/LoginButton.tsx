@@ -5,7 +5,10 @@ export default function LoginButton() {
   if (session) {
     return (
       <div>
-        <button onClick={() => signOut()} className='border rounded p-1'>
+        <button
+          onClick={() => signOut()}
+          className='p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
+        >
           Sign out
         </button>
       </div>
@@ -14,7 +17,10 @@ export default function LoginButton() {
 
   return (
     <div>
-      <button onClick={() => signIn()} className='border rounded p-1'>
+      <button
+        onClick={() => signIn()}
+        className='p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
+      >
         Sign in
       </button>
     </div>

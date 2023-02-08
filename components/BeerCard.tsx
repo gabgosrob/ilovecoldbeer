@@ -5,9 +5,10 @@ export default function BeerCard({ beer }: BeerCardProps) {
   return (
     <Link
       href={`/beer/${beer.id}`}
-      className='border p-2 border-black dark:border-white'
+      className='flex flex-col items-center gap-1 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:scale-110 transition-all hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
     >
-      {beer.name}
+      <div className='text-xl font-bold'>{beer.name}</div>
+      <div className='text-sm'>{beer.style}</div>
     </Link>
   )
 }

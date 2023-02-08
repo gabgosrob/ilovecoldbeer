@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <header className='flex items-center justify-center gap-5'>
+    <header className='flex items-center justify-center gap-10'>
       <LoginButton />
-      <Link href='/' className='text-4xl font-bold'>
-        ilovecoldbeer
+      <Link href='/' className='text-5xl font-bold'>
+        ilovecold.beer
       </Link>
       <ThemeToggler />
     </header>

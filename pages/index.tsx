@@ -21,14 +21,17 @@ export default function Home({ beers }: IndexProps) {
       </Head>
       <main className='m-3 mt-12 flex flex-col gap-10'>
         <Navbar />
-        <div className='flex justify-center items-center gap-4'>
-          {beerComponents}
-          <Link
-            href='/beer/add-beer'
-            className='border p-2 border-black dark:border-white'
-          >
-            +
-          </Link>
+        <div className='flex flex-col justify-center items-center gap-10'>
+          <div className='text-lg'>Add and review your favorite beers!</div>
+          <div className='flex flex-wrap items-center justify-center gap-6 max-w-lg'>
+            {beerComponents}
+            <Link
+              href='/beer/add-beer'
+              className='font-bold p-3 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
+            >
+              +
+            </Link>
+          </div>
         </div>
       </main>
     </div>
