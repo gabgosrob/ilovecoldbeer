@@ -21,9 +21,9 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
     )
   } else {
     beerInfo = (
-      <div className='flex flex-col justify-center items-center gap-3 border p-3 max-w-md'>
-        <div className='underline font-bold'>{beer.name}</div>
-        <div className='flex flex-col'>
+      <div className='flex flex-col justify-center items-center gap-3 p-3 max-w-md bg-white border border-gray-200 rounded-lg shadow transition-all dark:bg-zinc-800'>
+        <div className='underline font-bold text-xl'>{beer.name}</div>
+        <div className='flex flex-col text-lg gap-3'>
           <div>Brewer: {beer.brewer}</div>
           <div>Style: {beer.style}</div>
           <div>Color: {beer.color}</div>
@@ -69,7 +69,7 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
         {beerInfo}
         <Link
           href={beer ? `/beer/review/${beer.id}` : '/'}
-          className='border p-1'
+          className='p-2 bg-white border border-gray-200 rounded-lg shadow hover:scale-110 transition-all hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
         >
           Review this beer!
         </Link>
