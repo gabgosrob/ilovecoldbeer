@@ -6,7 +6,12 @@ export type BeerProps = {
 }
 
 export type UserProps = {
-  user: User
+  user: User & {
+    _count: {
+      addedBeers: number
+      reviews: number
+    }
+  }
 }
 
 export type IndexProps = {

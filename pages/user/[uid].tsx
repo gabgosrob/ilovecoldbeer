@@ -13,14 +13,27 @@ export default function UserPage({ user }: UserProps) {
   } else {
     userInfo = (
       <div className='flex flex-col justify-center items-center gap-6'>
-        <div>Name: {user.name}</div>
-        <div>ID: {user.id}</div>
+        <div className='flex flex-col items-center gap-2'>
+          <div className='font-bold text-xl'>{user.name}</div>
+          <div className='text-sm'>{user.id}</div>
+        </div>
         <Image
           src={user.image || ''}
           alt='User profile picture'
           width={265}
           height={265}
-        ></Image>
+          style={{ borderRadius: '50%' }}
+        />
+        <div className='flex flex-col items-center gap-2'>
+          <div>
+            {user._count.addedBeers}{' '}
+            {user._count.addedBeers == 1 ? 'beer' : 'beers'} added
+          </div>
+          <div>
+            {user._count.reviews} {user._count.reviews == 1 ? 'beer' : 'beers'}{' '}
+            reviewed
+          </div>
+        </div>
       </div>
     )
   }
@@ -46,6 +59,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const user = await prisma.user.findFirst({
     where: {
       id: userId,
+    },
+    include: {
+      _count: {
+        select: { reviews: true, addedBeers: true },
+      },
     },
   })
 
