@@ -5,6 +5,7 @@ import { BeerReviewProps } from '@/lib/custom-types'
 import { useSession } from 'next-auth/react'
 import Router from 'next/router'
 import Navbar from '@/components/Navbar'
+import Spinner from '@/components/Spinner'
 import Link from 'next/link'
 
 export default function BeerReview({ beer }: BeerReviewProps) {
@@ -16,7 +17,11 @@ export default function BeerReview({ beer }: BeerReviewProps) {
   })
 
   if (status === 'loading') {
-    return <div>Loading...</div>
+    return (
+      <div className='flex items-center justify-center mt-10'>
+        <Spinner />
+      </div>
+    )
   }
 
   if (!beer) {
@@ -33,19 +38,21 @@ export default function BeerReview({ beer }: BeerReviewProps) {
       </Head>
       <main className='m-3 mt-12 flex flex-col justify-center items-center gap-10'>
         <Navbar />
-        <div>
+        <div className='text-lg'>
           Review{' '}
-          <Link href={`/beer/${beer.id}`} className='font-bold'>
+          <Link href={`/beer/${beer.id}`}>
+            {"'"}
             {beer.name}
+            {"'"}
           </Link>
         </div>
         <form
           action='/api/review-beer'
           method='post'
-          className='flex flex-col gap-3'
+          className='flex flex-col gap-4'
           id='reviewform'
         >
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-1'>
             <label htmlFor='comment'>Comment:</label>
             <textarea
               form='reviewform'
@@ -53,11 +60,11 @@ export default function BeerReview({ beer }: BeerReviewProps) {
               name='comment'
               required
               maxLength={240}
-              className='border h-20'
+              className='shadow appearance-none border rounded h-20 p-1'
             ></textarea>
           </div>
 
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-1'>
             <label htmlFor='score'>Score:</label>
             <input
               type='number'
@@ -66,7 +73,8 @@ export default function BeerReview({ beer }: BeerReviewProps) {
               required
               min={1}
               max={10}
-              className='border'
+              placeholder={'1-10'}
+              className='shadow appearance-none border rounded p-1'
             ></input>
           </div>
 

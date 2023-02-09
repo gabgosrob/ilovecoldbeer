@@ -24,21 +24,23 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
       <div className='flex flex-col justify-center items-center gap-3 p-3 max-w-md bg-white border border-gray-200 rounded-lg shadow transition-all dark:bg-zinc-800'>
         <div className='underline font-bold text-xl'>{beer.name}</div>
         <div className='flex flex-col text-lg gap-3'>
-          <div>Brewer: {beer.brewer}</div>
-          <div>Style: {beer.style}</div>
-          <div>Color: {beer.color}</div>
+          <div>Brewer · {beer.brewer}</div>
+          <div>Style · {beer.style}</div>
+          <div>Color · {beer.color}</div>
           <div className='overflow-y-scroll'>
-            Description: {beer.description}
+            Description · {beer.description}
           </div>
           <div>
-            Average Score:{' '}
+            Average Score ·{' '}
             {reviews.length
               ? `${Math.round(averageScore * 100) / 100}/10`
               : 'No reviews yet!'}
           </div>
         </div>
         <div>
-          <Link href={`/user/${beer.userId}`}>Added by {beer.userId}</Link>
+          <Link href={`/user/${beer.userId}`} className='text-sm'>
+            Added by {beer.userId}
+          </Link>
         </div>
       </div>
     )
