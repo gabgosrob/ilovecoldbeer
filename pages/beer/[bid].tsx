@@ -67,12 +67,15 @@ export default function BeerPage({ beer, reviews }: BeerProps) {
       <main className='m-3 mt-12 flex flex-col justify-center items-center gap-10'>
         <Navbar />
         {beerInfo}
-        <Link
-          href={beer ? `/beer/review/${beer.id}` : '/'}
-          className='p-2 bg-white border border-gray-200 rounded-lg shadow hover:scale-110 transition-all hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
-        >
-          Review this beer!
-        </Link>
+        {beer && (
+          <Link
+            href={beer ? `/beer/review/${beer.id}` : '/'}
+            className='p-2 bg-white border border-gray-200 rounded-lg shadow hover:scale-110 transition-all hover:bg-gray-100 dark:bg-zinc-800 dark:hover:bg-zinc-700'
+          >
+            Review this beer!
+          </Link>
+        )}
+
         <div className='flex gap-6'>{reviewsInfo}</div>
       </main>
     </div>
