@@ -9,6 +9,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const session = await getServerSession(req, res, authOptions)
+  if (req.method != 'POST') {
+    return res.redirect('/')
+  }
   if (!session || !session.user) {
     return res.redirect('/')
   }
