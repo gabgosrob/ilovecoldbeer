@@ -67,12 +67,11 @@ export default function BeerReview({ beer }: BeerReviewProps) {
           <div className='flex flex-col gap-1'>
             <label htmlFor='score'>Score:</label>
             <input
-              type='number'
+              type='text'
               id='score'
               name='score'
               required
-              min={1}
-              max={10}
+              pattern='^(?:[1-9]|0[1-9]|10)$'
               placeholder={'1-10'}
               className='shadow appearance-none border rounded p-1'
             ></input>
